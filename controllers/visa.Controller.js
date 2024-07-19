@@ -6,7 +6,7 @@ exports.CreateVisa = async (req, res) => {
     try {
         console.log(req.body)
         const emptyField = []
-        const { VisaRecordNumber, PasswordNumber, Country, dateofbirth } = req.body
+        const { VisaRecordNumber, PasswordNumber, Country, dateofbirth, VisaStatus, Name, VisaType, Validity, IssuedDate, EnterBefore } = req.body
 
         if (!VisaRecordNumber) {
             emptyField.push("Please fill the VisaRecordNumber")
@@ -19,6 +19,24 @@ exports.CreateVisa = async (req, res) => {
         }
         if (!dateofbirth) {
             emptyField.push("Please fill the dateofbirth")
+        }
+        if (!VisaStatus) {
+            emptyField.push("Please fill the VisaStatus")
+        }
+        if (!Name) {
+            emptyField.push("Please fill the Name")
+        }
+        if (!VisaType) {
+            emptyField.push("Please fill the VisaType")
+        }
+        if (!Validity) {
+            emptyField.push("Please fill the Validity")
+        }
+        if (!IssuedDate) {
+            emptyField.push("Please fill the IssuedDate")
+        }
+        if (!EnterBefore) {
+            emptyField.push("Please fill the EnterBefore")
         }
 
         if (emptyField.length > 0) {
@@ -33,7 +51,13 @@ exports.CreateVisa = async (req, res) => {
             VisaRecordNumber,
             PasswordNumber,
             Country,
-            dateofbirth
+            dateofbirth,
+            VisaStatus,
+            Name,
+            VisaType,
+            Validity,
+            IssuedDate,
+            EnterBefore
         })
         console.log(req.file, 'my file')
         if (req.file) {
