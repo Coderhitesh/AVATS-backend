@@ -19,7 +19,6 @@ const VisaModel = new mongoose.Schema({
     },
     pdf: {
         type: String,
-        // required : true
     },
     VisaStatus: {
         type: String,
